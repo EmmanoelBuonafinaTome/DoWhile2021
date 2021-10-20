@@ -14,7 +14,7 @@ interface IUserResponse {
 }
 
 class AuthenticateUserService {
-  async excute(code: string) {
+  async execute(code: string) {
     const url = 'https://github.com/login/oauth/access_token';
 
     const { data: accessTokenResponse } = await axios.post<IAccessTokenResponse>(url, null, {
@@ -64,7 +64,7 @@ class AuthenticateUserService {
       process.env.JWT_SECRET,
       {
         subject: user.id,
-        expiresIn: "10d"
+        expiresIn: "1d"
       }
     );
 
